@@ -25,6 +25,7 @@ import { addDays } from "date-fns";
 const CotizarForm = ({ open, onClose, data }) => {
   const [nombreCotizacion, setNombreCotizacion] = useState("");
   const [nombreVersion, setNombreVersion] = useState("");
+  const [nombreSubversion, setNombreSubVersion] = useState("");
   const [contacto, setContacto] = useState(data.nombreCliente || "");
   const [cotizante, setCotizante] = useState("");
 
@@ -82,13 +83,23 @@ const CotizarForm = ({ open, onClose, data }) => {
                   />
                 </div>
 
-                <div className="space-y-1">
-                  <Label htmlFor="version">Versión</Label>
-                  <Input
-                    id="version"
-                    value={nombreVersion}
-                    onChange={(e) => setNombreVersion(e.target.value)}
-                  />
+                <div className="flex justify-between">
+                  <div className="space-y-1">
+                    <Label htmlFor="version">Numero Versión</Label>
+                    <Input
+                      id="version"
+                      value={nombreVersion}
+                      onChange={(e) => setNombreVersion(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="version">Numero Subversión</Label>
+                    <Input
+                      id="version"
+                      value={nombreSubversion}
+                      onChange={(e) => setNombreSubVersion(e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex justify-between">

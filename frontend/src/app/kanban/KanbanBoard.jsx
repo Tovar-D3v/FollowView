@@ -7,6 +7,7 @@ import "../../styles/kanban.css";
 import CardPropuestas from "@/components/kanban/card-propuestas";
 import Cards from "@/components/kanban/cards";
 import CotizarForm from "@/components/kanban/cotizar-form";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const WS_URL = "ws://192.168.3.76:8081/ws/negocios";
 
@@ -73,6 +74,7 @@ const KanbanBoard = () => {
   const negocios = useWebSocket(WS_URL);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleTaskDoubleClick = (event) => {
     const taskStatus = event.detail?.value?.status;
@@ -89,22 +91,25 @@ const KanbanBoard = () => {
   };
 
   useEffect(() => {
-    const kanban = document.getElementById("kanban");
-    if (kanban && negocios.length > 0) {
-      kanban.refresh();
+    if (negocios.length > 0) {
+      setIsLoading(false);
     }
   }, [negocios]);
 
   return (
     <>
-      <Kanban
-        id="kanban"
-        {...kanbanSettings}
-        dataSource={negocios}
-        columns={columns}
-        editable={false}
-        onTaskDoubleClick={handleTaskDoubleClick}
-      />
+      {isLoading ? (
+        <Skeleton className="w-[100px] h-[20px] rounded-full" />
+      ) : (
+        <Kanban
+          id="kanban"
+          {...kanbanSettings}
+          dataSource={negocios}
+          columns={columns}
+          editable={false}
+          onTaskDoubleClick={handleTaskDoubleClick}
+        />
+      )}
 
       {isSheetOpen && (
         <CotizarForm

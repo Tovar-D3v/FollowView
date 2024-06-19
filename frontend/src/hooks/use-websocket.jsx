@@ -23,7 +23,7 @@ const useWebSocket = (url) => {
           nombreAgente: negocio.nombreAgente ? negocio.nombreAgente : 'N/A',
           nombreCotizador: negocio.nombreCotizador	? negocio.nombreCotizador	: 'N/A',
           nombreCliente: negocio.nombreCliente ? negocio.nombreCliente	: ' ',
-          estaCotizado: negocio.esta_cotizado ? 'Cotizado' : 'No cotizado',
+          estaCotizado: negocio.esta_cotizado ? true : false,
           fechaCreacion: negocio.fechaCreacion,
         }));
         setData(transformedData);
