@@ -46,3 +46,19 @@ export const crearCotizacion = async (cotizacion) => {
     throw error;
   }
 };
+
+
+export const obtenerVersionesSubversiones = async (cotizacionId) => {
+  try {
+    const response = await fetch(`${API_URL}/${cotizacionId}/detalles`);
+
+    if (!response.ok) {
+      throw new Error("Error en la solicitud");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error al obtener las versiones de la cotización:", error);
+    throw error;
+  }
+}

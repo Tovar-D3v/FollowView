@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AccordionDemo } from "@/components/kanban/versiones-cotizacion";
 import {
   Sheet,
   SheetContent,
@@ -29,8 +30,6 @@ const CotizarForm = ({ open, onClose, data }) => {
   const [contacto, setContacto] = useState(data.nombreCliente || "");
   const [cotizante, setCotizante] = useState("");
 
-  console.log("Data:", data);
-
   const handleSubmit = async () => {
     const cotizacion = {
       nombreCotizacion,
@@ -49,6 +48,7 @@ const CotizarForm = ({ open, onClose, data }) => {
     }
   };
 
+
   return (
     <Sheet open={open} onOpenChange={onClose}>
       <SheetContent className="w-fit">
@@ -59,13 +59,13 @@ const CotizarForm = ({ open, onClose, data }) => {
           </SheetDescription>
         </SheetHeader>
 
-        <Tabs defaultValue="account" className="w-[440px] mt-4">
+        <Tabs defaultValue={`${data.estaCotizado}`} className="w-[440px] mt-4">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="account">Cotizar</TabsTrigger>
-            <TabsTrigger value="password">Versiones</TabsTrigger>
+            <TabsTrigger value="false">Cotizar</TabsTrigger>
+            <TabsTrigger value="true">Versiones</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="account">
+          <TabsContent value="false">
             <Card>
               <CardHeader>
                 <CardTitle>Cotizar</CardTitle>
@@ -146,7 +146,7 @@ const CotizarForm = ({ open, onClose, data }) => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="password">
+          <TabsContent value="true">
             <Card>
               <CardHeader>
                 <CardTitle>Versiones</CardTitle>
@@ -155,18 +155,8 @@ const CotizarForm = ({ open, onClose, data }) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <Input id="current" type="password" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <Input id="new" type="password" />
-                </div>
+                <AccordionDemo />
               </CardContent>
-              <CardFooter>
-                <Button>Save password</Button>
-              </CardFooter>
             </Card>
           </TabsContent>
         </Tabs>
