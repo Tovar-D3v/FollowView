@@ -36,10 +36,13 @@ const CotizarForm = ({ open, onClose, data }) => {
     const cotizacion = {
       nombreCotizacion,
       version: nombreVersion,
+      subversion: nombreSubversion,
       proyecto: data.numeroProyecto,
       clienteId: data.cliente,
       negocioId: data.id,
     };
+
+    console.log("Cotizacion", cotizacion);
 
     try {
       const result = await crearCotizacion(cotizacion);
@@ -49,7 +52,6 @@ const CotizarForm = ({ open, onClose, data }) => {
       console.error("Error al crear la cotización:", error);
     }
   };
-
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
@@ -157,7 +159,7 @@ const CotizarForm = ({ open, onClose, data }) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <AccordionDemo negocioId={data.id}/>
+                <AccordionDemo negocioId={data.id} />
               </CardContent>
             </Card>
           </TabsContent>

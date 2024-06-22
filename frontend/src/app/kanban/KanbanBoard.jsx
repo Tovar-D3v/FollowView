@@ -74,14 +74,13 @@ const KanbanBoard = () => {
   const negocios = useWebSocket(WS_URL);
   const [selectedTask, setSelectedTask] = useState(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const handleTaskDoubleClick = (event) => {
     const taskStatus = event.detail?.value?.status;
     if (taskStatus === "propuestas") {
-        console.log("🟢 Abriendo CotizarForm para:", event.detail.value);
-        setSelectedTask(event.detail.value);
-        setIsSheetOpen(true);
+      console.log("🟢 Abriendo CotizarForm para:", event.detail.value);
+      setSelectedTask(event.detail.value);
+      setIsSheetOpen(true);
     }
   };
 
@@ -91,25 +90,22 @@ const KanbanBoard = () => {
   };
 
   useEffect(() => {
-    if (negocios.length > 0) {
-      setIsLoading(false);
+    const kanban = document.getElementById("kanban");
+    if (kanban && negocios.length > 0) {
+      kanban.refresh();
     }
   }, [negocios]);
 
   return (
     <>
-      {isLoading ? (
-        <Skeleton className="w-[100px] h-[20px] rounded-full" />
-      ) : (
-        <Kanban
-          id="kanban"
-          {...kanbanSettings}
-          dataSource={negocios}
-          columns={columns}
-          editable={false}
-          onTaskDoubleClick={handleTaskDoubleClick}
-        />
-      )}
+      <Kanban
+        id="kanban"
+        {...kanbanSettings}
+        dataSource={negocios}
+        columns={columns}
+        editable={false}
+        onTaskDoubleClick={handleTaskDoubleClick}
+      />
 
       {isSheetOpen && (
         <CotizarForm

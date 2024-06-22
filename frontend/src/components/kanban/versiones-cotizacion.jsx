@@ -36,10 +36,9 @@ export function AccordionDemo({ negocioId }) {
           <AccordionContent>
             {version.subVersiones.map((subversion) => (
               <div key={subversion.id}>
-                <div className="bg-slate-700 p-2 rounded-lg flex justify-between">
-                  {version.cotizacion.nombre_cotizacion || "Sin nombre"} - {version.version.nombre_version}.{subversion.nombre_subversion}
-
-                  <button className="btn btn-primary">Abrir</button>
+                <div className="bg-slate-700 p-2 rounded-lg flex justify-between text-center items-center text-xs">
+                  <p>{version.cotizacion.nombre_cotizacion || "Sin nombre"} - {version.version.nombre_version}.{subversion.nombre_subversion}</p>
+                  <button className="px-2 bg-lime-700 rounded-lg py-0.5">Abrir</button>
                 </div>
               </div>
             ))}

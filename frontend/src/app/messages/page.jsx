@@ -7,7 +7,7 @@ const MessagesPage = () => {
         <div class="bg-sidebar-foreground xl:w-3/12 lg:w-4/12 w-full p-4 rounded-xl">
           <h3 class="text-2xl mb-4 font-bold">Chats</h3>
           <div className="mb-4">
-            <input type="text" placeholder="Buscar" className="p-1.5 pl-3 rounded-lg bg-white w-full"/>
+            <input type="text" placeholder="Buscar" className="p-1.5 pl-3 rounded-lg bg-white w-full text-cyan-950"/>
           </div>
           <div class="overflow-auto h-4/5">
             <div class="flex mb-4 p-4 rounded bg-neutral-800">
@@ -78,7 +78,7 @@ const MessagesPage = () => {
               </div>
             </div>
           </div>
-          <div class="py-6 px-10 h-[83%] overflow-auto">
+          <div class="py-6 px-10 h-[80%] overflow-auto">
             <div class="flex flex-row-reverse mb-3">
               <img
                 src="../../../public/logo.jpg"

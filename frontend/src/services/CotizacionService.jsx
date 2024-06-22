@@ -18,10 +18,13 @@ export const crearCotizacion = async (cotizacion) => {
       proyecto: cotizacion.proyecto,
       solicitud: null,
       cliente_id: cotizacion.clienteId,
-      negocio_id: cotizacion.negocioId,
+      negocioId: cotizacion.negocioId, // Asegúrate de que este campo esté presente
     },
     nombreVersion: cotizacion.version ? cotizacion.version : "1.0",
+    nombreSubversion: cotizacion.subversion ? cotizacion.subversion : "1.0",
   };
+
+  console.log("Cotización a crear:", cotizacionData);
 
   try {
     const response = await fetch(API_URL, {
@@ -37,6 +40,7 @@ export const crearCotizacion = async (cotizacion) => {
     }
 
     const result = await response.json();
+    console.log("Cotización creada result:", result);
 
     await actualizarNegocio(cotizacion.negocioId, { titulo: cotizacion.nombreCotizacion, esta_cotizado: true });
 
@@ -46,7 +50,6 @@ export const crearCotizacion = async (cotizacion) => {
     throw error;
   }
 };
-
 
 export const obtenerVersionesSubversiones = async (negocioId) => {
   try {
