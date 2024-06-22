@@ -30,6 +30,8 @@ const CotizarForm = ({ open, onClose, data }) => {
   const [contacto, setContacto] = useState(data.nombreCliente || "");
   const [cotizante, setCotizante] = useState("");
 
+  console.log("Data:", data);
+
   const handleSubmit = async () => {
     const cotizacion = {
       nombreCotizacion,
@@ -155,7 +157,7 @@ const CotizarForm = ({ open, onClose, data }) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <AccordionDemo />
+                <AccordionDemo negocioId={data.id}/>
               </CardContent>
             </Card>
           </TabsContent>
