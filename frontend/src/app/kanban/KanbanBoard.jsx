@@ -83,12 +83,17 @@ const KanbanBoard = () => {
     }
   };
 
-
-
   const handleCloseForm = () => {
     setIsSheetOpen(false);
     setSelectedTask(null);
   };
+
+  useEffect(() => {
+    const kanban = document.getElementById("kanban");
+    if (kanban && negocios.length > 0) {
+      kanban.refresh();
+    }
+  }, [negocios]);
 
   return (
     <>

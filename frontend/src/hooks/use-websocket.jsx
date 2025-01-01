@@ -15,6 +15,7 @@ const useWebSocket = (url) => {
           text: negocio.titulo,
           description: negocio.descripcion ? negocio.descripcion : '',
           priority: negocio.prioridad.nombre,
+          colorPriority: negocio.prioridad.descripcion,
           agente: negocio.agente_id,
           estimado: negocio.estimado ? negocio.estimado.toLocaleString('de-DE') : '0',
           cliente: negocio.cliente_id,
@@ -22,6 +23,8 @@ const useWebSocket = (url) => {
           nombreAgente: negocio.nombreAgente ? negocio.nombreAgente : 'N/A',
           nombreCotizador: negocio.nombreCotizador	? negocio.nombreCotizador	: 'N/A',
           nombreCliente: negocio.nombreCliente ? negocio.nombreCliente	: ' ',
+          estaCotizado: negocio.esta_cotizado ? 'Cotizado' : 'No cotizado',
+          fechaCreacion: negocio.fechaCreacion,
         }));
         setData(transformedData);
       } catch (error) {

@@ -2,6 +2,7 @@
   "dependencies": {
     "ant": "^0.0.0",
     "antd": "^5.23.3",
+    "date-fns": "^4.1.0",
     "react-beautiful-dnd": "^13.1.1",
     "styled-components": "^6.1.14"
   }

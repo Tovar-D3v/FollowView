@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -18,9 +18,35 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { crearCotizacion } from "@/services/cotizacionService";
+import { formatFecha } from "@/utils/dateUtils";
+import { addDays } from "date-fns";
 
 const CotizarForm = ({ open, onClose, data }) => {
-  if (!data) return null;
+  const [nombreCotizacion, setNombreCotizacion] = useState("");
+  const [nombreVersion, setNombreVersion] = useState("");
+  const [contacto, setContacto] = useState(data.nombreCliente || "");
+  const [cotizante, setCotizante] = useState("");
+
+  console.log("Data:", data);
+
+  const handleSubmit = async () => {
+    const cotizacion = {
+      nombreCotizacion,
+      version: nombreVersion,
+      proyecto: data.numeroProyecto,
+      clienteId: data.cliente,
+      negocioId: data.id,
+    };
+
+    try {
+      const result = await crearCotizacion(cotizacion);
+      console.log("Cotización creada:", result);
+      onClose();
+    } catch (error) {
+      console.error("Error al crear la cotización:", error);
+    }
+  };
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
@@ -48,40 +74,63 @@ const CotizarForm = ({ open, onClose, data }) => {
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="name">Nombre Cotizacion</Label>
-                  <Input id="name" />
+                  <Label htmlFor="nombreCotizacion">Nombre Cotización</Label>
+                  <Input
+                    id="nombreCotizacion"
+                    value={nombreCotizacion}
+                    onChange={(e) => setNombreCotizacion(e.target.value)}
+                  />
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="version">Version</Label>
-                  <Input id="version" />
+                  <Label htmlFor="version">Versión</Label>
+                  <Input
+                    id="version"
+                    value={nombreVersion}
+                    onChange={(e) => setNombreVersion(e.target.value)}
+                  />
                 </div>
 
-                <div className=" flex justify-between">
+                <div className="flex justify-between">
                   <div className="space-y-1">
-                    <Label htmlFor="version">Fecha Cotizacion</Label>
-                    <Input id="version" />
+                    <Label htmlFor="fechaCotizacion">Fecha Cotización</Label>
+                    <Input
+                      id="fechaCotizacion"
+                      value={formatFecha(new Date())}
+                      readOnly
+                    />
                   </div>
-                  
+
                   <div className="space-y-1">
-                    <Label htmlFor="version">Fecha Limite</Label>
-                    <Input id="version" />
+                    <Label htmlFor="fechaLimite">Fecha Límite</Label>
+                    <Input
+                      id="fechaLimite"
+                      value={formatFecha(addDays(new Date(), 15))}
+                      readOnly
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="version">Contacto</Label>
-                  <Input id="version" />
+                  <Label htmlFor="contacto">Contacto</Label>
+                  <Input
+                    id="contacto"
+                    value={contacto}
+                    onChange={(e) => setContacto(e.target.value)}
+                  />
                 </div>
 
                 <div className="space-y-1">
-                  <Label htmlFor="version">Cotizante</Label>
-                  <Input id="version" />
+                  <Label htmlFor="cotizante">Cotizante</Label>
+                  <Input
+                    id="cotizante"
+                    value={cotizante}
+                    onChange={(e) => setCotizante(e.target.value)}
+                  />
                 </div>
-
               </CardContent>
               <CardFooter>
-                <Button>Crear</Button>
+                <Button onClick={handleSubmit}>Crear</Button>
               </CardFooter>
             </Card>
           </TabsContent>

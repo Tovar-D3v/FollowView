@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import formatFecha from "./formatear-fechas";
 
 const Cards = ({ data }) => {
+  const fechaCreacion = formatFecha(data.fechaCreacion);
+
   return (
     <div
       style={{
@@ -11,8 +14,27 @@ const Cards = ({ data }) => {
       }}
     >
       <div className="header-card">
+        <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
+          <span className="material-icons-round" style={{ fontSize: "15px" }}>
+            watch_later
+          </span>
+          <p
+            style={{
+              fontSize: "10px",
+              fontWeight: "bold",
+              textTransform: "capitalize",
+            }}
+          >
+            {fechaCreacion}
+          </p>
+        </div>
         <h5 className="title-card">{data.text}</h5>
-        <div className="prioridad">{data.priority}</div>
+        <div style={{display: 'flex', gap: '5px'}}>
+          <div className="prioridad" style={{background: data.colorPriority}}>{data.priority}</div>
+          <div className="prioridad" style={{background: data.estaCotizado ? 'green' : 'red', color: '#fff'}}>
+            {data.estaCotizado ? 'Cotizado' : 'No Cotizado'}
+          </div>
+        </div>
       </div>
       <div className="body-card">
         <div style={{ display: "flex", flexDirection: "column" }}>

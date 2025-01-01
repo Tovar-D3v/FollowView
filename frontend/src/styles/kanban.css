@@ -21,7 +21,6 @@
     padding: 1px 5px;
     justify-content: space-between;
     width: fit-content;
-    background-color: red;
     font-size: 8px;
     border-radius: 4px;
     font-weight: bold;
@@ -59,6 +58,7 @@
     border-radius: 5px;
     background-color: #f5f5f5;
     width: 100%;
+    font-size: 12px;
 }
 
 .cotizar-btn {
@@ -76,4 +76,8 @@
 
 .cotizar-btn span {
     font-size: 14px;
+}
+
+.smart-scroll-viewer smart-scroll-bar[orientation="vertical"] {
+    width: 11px !important;
 }

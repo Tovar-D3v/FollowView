@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://192.168.0.221:8000/autenticacion/api";
+const BASE_URL = `http://192.168.0.221:8000/autenticacion/api`;
 
 export const login = async (credentials) => {
   console.log('credenciales', credentials);

@@ -3,7 +3,7 @@ import {
   LayoutList,
   WalletMinimal,
   Bug,
-  GalleryVerticalEnd,
+  FlaskConical,
   AppWindow,
   Settings,
   ReceiptText,
@@ -33,7 +33,7 @@ const initialData = {
   teams: [
     {
       name: "Chronos Lab",
-      logo: GalleryVerticalEnd,
+      logo: FlaskConical,
       plan: "Administrador",
     },
   ],
