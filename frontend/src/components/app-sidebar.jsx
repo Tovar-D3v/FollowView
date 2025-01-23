@@ -1,15 +1,13 @@
 import * as React from "react"
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
+  LayoutList,
+  WalletMinimal,
+  Bug,
   GalleryVerticalEnd,
-  Map,
-  PieChart,
+  AppWindow,
   Settings2,
-  SquareTerminal,
+  Receipt,
+  LayoutDashboard,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -35,91 +33,72 @@ const data = {
     {
       name: "Chronos Lab",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "Administrador",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Panel de Control",
       url: "#",
-      icon: SquareTerminal,
+      icon: LayoutDashboard,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Planta",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "Cotizaciones",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "Clientes",
+          url: "#",
+        },
+        {
+          title: "Inventarios",
+          url: "#",
+        }
+      ]
+    },
+    {
+      title: "Cotizaciones",
+      url: "#",
+      icon: WalletMinimal,
+      items: [
+        {
+          title: "Nueva Cotización",
+          url: "#",
+        },
+        {
+          title: "Cotizaciones",
+          url: "#",
+        },
+        {
+          title: "Cotizaciones Pendientes",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Facturación",
       url: "#",
-      icon: Bot,
+      icon: Receipt,
       items: [
         {
-          title: "Genesis",
+          title: "Nueva Factura",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Facturas",
           url: "#",
         },
         {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
+          title: "Pagos",
           url: "#",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
+          title: "Cobros",
           url: "#",
         },
       ],
@@ -127,19 +106,24 @@ const data = {
   ],
   projects: [
     {
-      name: "Design Engineering",
+      name: "Proyectos",
       url: "#",
-      icon: Frame,
+      icon: LayoutList,
     },
     {
-      name: "Sales & Marketing",
+      name: "Errores y Bugs",
       url: "#",
-      icon: PieChart,
+      icon: Bug,
     },
     {
-      name: "Travel",
+      name: "Pagina Web",
       url: "#",
-      icon: Map,
+      icon: AppWindow,
+    },
+    {
+      name: "Configuracion",
+      url: "#",
+      icon: Settings2,
     },
   ],
 }
