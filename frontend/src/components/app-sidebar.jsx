@@ -27,7 +27,7 @@ const data = {
   user: {
     name: "Tovar",
     email: "w.tovar@utp.edu.co",
-    avatar: "/public/admin.webp",
+    avatar: "/admin.webp",
   },
   teams: [
     {
