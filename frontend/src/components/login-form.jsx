@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import axios from "axios"
 
 export function LoginForm({
   className,
@@ -10,7 +11,7 @@ export function LoginForm({
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href = "http://192.168.3.76:3001/dashboard/";
+    window.location.href = "/ruta/";
   };
 
   return (
@@ -20,14 +21,14 @@ export function LoginForm({
           <form className="p-6 md:p-8" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Bienvenido</h1>
+                <h1 className="text-2xl font-bold">Chronos Lab</h1>
                 <p className="text-balance text-muted-foreground">
                   Ingrese su usuario y contraseña para acceder a su cuenta.
                 </p>
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Usuario</Label>
-                <Input id="email" type="text" placeholder="pepito.perez" required />
+                <Input id="email" type="text" required />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
@@ -81,11 +82,11 @@ export function LoginForm({
               </div>
             </div>
           </form>
-          <div className="relative hidden bg-muted md:block">
+          <div className="relative hidden bg-ring md:flex content-center justify-center items-center flex-col">
             <img
-              src="/placeholder.svg"
+              src="/image2.png"
               alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
+              className="w-full object-cover dark:brightness-[0.2] dark:grayscale" />
           </div>
         </CardContent>
       </Card>
