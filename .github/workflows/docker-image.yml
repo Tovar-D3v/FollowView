@@ -1,12 +1,15 @@
-name: Build and Push Docker Image
+name: docker website frontend
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'frontend/**'
 
 jobs:
   build:
+    name: Docker Build
     runs-on: ubuntu-latest
 
     steps:
