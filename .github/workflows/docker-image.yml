@@ -25,5 +25,6 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
+        context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/autenticacion-microservicio:latest
+        tags: tovard3v/chronoslab.frontend:latest
