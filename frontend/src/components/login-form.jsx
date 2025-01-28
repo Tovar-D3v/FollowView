@@ -11,7 +11,7 @@ export function LoginForm({
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    window.location.href = "/ruta/";
+    window.location.href = "/dashboard-planta/";
   };
 
   return (

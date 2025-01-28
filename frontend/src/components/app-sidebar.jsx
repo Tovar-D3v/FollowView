@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 import {
   LayoutList,
   WalletMinimal,
@@ -8,22 +8,22 @@ import {
   Settings2,
   Receipt,
   LayoutDashboard,
-} from "lucide-react"
+} from "lucide-react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavUser } from "@/components/nav-user";
+import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 // This is sample data.
-const data = {
+const initialData = {
   user: {
     name: "Tovar",
     email: "w.tovar@utp.edu.co",
@@ -39,13 +39,11 @@ const data = {
   navMain: [
     {
       title: "Panel de Control",
-      url: "#",
       icon: LayoutDashboard,
-      isActive: true,
       items: [
         {
           title: "Planta",
-          url: "#",
+          url: "/dashboard-planta",
         },
         {
           title: "Cotizaciones",
@@ -63,7 +61,7 @@ const data = {
     },
     {
       title: "Cotizaciones",
-      url: "#",
+      url: "/cotizaciones",
       icon: WalletMinimal,
       items: [
         {
@@ -82,7 +80,7 @@ const data = {
     },
     {
       title: "Facturación",
-      url: "#",
+      url: "/facturacion",
       icon: Receipt,
       items: [
         {
@@ -106,8 +104,8 @@ const data = {
   ],
   projects: [
     {
-      name: "Proyectos",
-      url: "#",
+      name: "Negocios",
+      url: "/negocios",
       icon: LayoutList,
     },
     {
@@ -126,24 +124,40 @@ const data = {
       icon: Settings2,
     },
   ],
-}
+};
 
-export function AppSidebar({
-  ...props
-}) {
+export function AppSidebar({ ...props }) {
+  const [data, setData] = React.useState(initialData);
+
+  const handleNavClick = (title) => {
+    const updatedNavMain = data.navMain.map((item) => ({
+      ...item,
+      isActive: item.title === title,
+    }));
+    const updatedProjects = data.projects.map((project) => ({
+      ...project,
+      isActive: project.name === title,
+    }));
+    setData({
+      ...data,
+      navMain: updatedNavMain,
+      projects: updatedProjects,
+    });
+  };
+
   return (
-    (<Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavMain items={data.navMain} onNavClick={handleNavClick} />
+        <NavProjects projects={data.projects} onNavClick={handleNavClick} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
-    </Sidebar>)
+    </Sidebar>
   );
 }
