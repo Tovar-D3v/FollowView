@@ -28,6 +28,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
-        context: .
+        context: ./frontend
+        file: ./frontend/dockerfile
         push: true
         tags: tovard3v/chronoslab.frontend:latest
