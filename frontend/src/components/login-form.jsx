@@ -28,7 +28,7 @@ export function LoginForm({ className, ...props }) {
           <form className="p-6 md:p-8" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Chronos La</h1>
+                <h1 className="text-2xl font-bold">Chronos</h1>
                 <p className="text-balance text-muted-foreground">
                   Ingrese su usuario y contraseña para acceder a su cuenta.
                 </p>
