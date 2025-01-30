@@ -33,6 +33,11 @@
     --sidebar-ring: 240 3.7% 15.9%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 60 9.1% 97.8%;
+
+    --muted-rgb: #27272a80;
+    --gray-rgb: #1a1a20;
+    --background-rgb: #23232a;
+    --border-rgb: #3f3f46;
   }
 
   .dark {
@@ -65,44 +70,68 @@
   }
 }
 
-.App {
-  text-align: center;
+.smart-kanban {
+  width: 100% !important;
+  height: 680px !important;
+  max-height: 680px !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#kanbanPriorityList {
+  color: #1a1a20 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.smart-kanban-task-description {
+  color: #1a1a20 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a#watermark {
+  display: none !important;
 }
 
-.App-link {
-  color: #61dafb;
+.react-kanban-board {
+  padding: 1rem 0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.smart-kanban-task-user {
+  display: none !important;
 }
+
+.smart-kanban.smart-kanban-column-color .smart-kanban-column:not(.smart-kanban-add-new-column) .smart-kanban-column-header {
+  background-color: var(--smart-ui-state-hover) !important;
+}
+
+.smart-element {
+  background-color: transparent !important;
+}
+
+.smart-kanban .smart-kanban-task[selected] {
+  background-color: var(--smart-background) !important;
+}
+
+.smart-kanban-task {
+  border-radius: 6px !important;
+}
+
+.smart-kanban-column[data-field="new"] .smart-kanban-task {
+  border-left: 4px solid orange;
+}
+
+.smart-kanban-column[data-field="proposed"] .smart-kanban-task {
+  border-left: 4px solid blue;
+}
+
+.smart-kanban-column[data-field="assigned"] .smart-kanban-task {
+  border-left: 4px solid green;
+}
+
+.smart-kanban-column[data-field="completed"] .smart-kanban-task {
+  border-left: 4px solid gray;
+}
+
+.smart-kanban .smart-kanban-column-content-tasks .smart-kanban-task[focus] {
+  box-shadow: none !important;
+}
+
 
 @layer base {
   * {
