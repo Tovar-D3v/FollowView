@@ -6,21 +6,19 @@ const useWebSocket = (url) => {
   useEffect(() => {
     const socket = new WebSocket(url);
 
-    socket.onopen = () => {
-      console.log("Conectado al WebSocket:", url);
-    };
-
     socket.onmessage = (event) => {
-      console.log("Mensaje recibido:", event.data);
       try {
         const parsedData = JSON.parse(event.data);
         const transformedData = parsedData.map((negocio) => ({
           id: negocio.id,
           status: negocio.etapaDelNegocio.nombre.toLowerCase(),
           text: negocio.titulo,
-          description: `${negocio.descripcion} - ${new Date(negocio.fechaCreacion).toLocaleDateString()}`,
-          customTitle: negocio.titulo, // Título personalizado
-          customDescription: `${negocio.descripcion} - ${new Date(negocio.fechaCreacion).toLocaleDateString()}` // Descripción personalizada
+          description: negocio.descripcion ? negocio.descripcion : '',
+          priority: negocio.prioridad.nombre,
+          agente: negocio.agente_id,
+          estimado: negocio.estimado ? negocio.estimado.toLocaleString('de-DE') : 'N/A',
+          cliente: negocio.cliente_id,
+          proyecto: negocio.numeroProyecto ? negocio.numeroProyecto : 'N/A',
         }));
         setData(transformedData);
       } catch (error) {
