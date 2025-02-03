@@ -16,9 +16,12 @@ const useWebSocket = (url) => {
           description: negocio.descripcion ? negocio.descripcion : '',
           priority: negocio.prioridad.nombre,
           agente: negocio.agente_id,
-          estimado: negocio.estimado ? negocio.estimado.toLocaleString('de-DE') : 'N/A',
+          estimado: negocio.estimado ? negocio.estimado.toLocaleString('de-DE') : '0',
           cliente: negocio.cliente_id,
           proyecto: negocio.numeroProyecto ? negocio.numeroProyecto : 'N/A',
+          nombreAgente: negocio.nombreAgente ? negocio.nombreAgente : 'N/A',
+          nombreCotizador: negocio.nombreCotizador	? negocio.nombreCotizador	: 'N/A',
+          nombreCliente: negocio.nombreCliente ? negocio.nombreCliente	: ' ',
         }));
         setData(transformedData);
       } catch (error) {

@@ -6,7 +6,7 @@ const Cards = ({ data }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "1rem",
+        gap: ".5rem",
         width: "100%",
       }}
     >
@@ -45,9 +45,9 @@ const Cards = ({ data }) => {
         </div>
 
         <div>
-          <p>{data.agente}</p>
+          <p>{data.nombreAgente}</p>
           <p>${data.estimado}</p>
-          <p>{data.cliente}</p>
+          <p>{data.nombreCliente}</p>
           <p>{data.proyecto}</p>
         </div>
       </div>

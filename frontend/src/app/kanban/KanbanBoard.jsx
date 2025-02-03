@@ -8,7 +8,7 @@ import CardPropuestas from "@/components/kanban/card-propuestas";
 import Cards from "@/components/kanban/cards";
 import CotizarForm from "@/components/kanban/cotizar-form";
 
-const WS_URL = "ws://localhost:8081/ws/negocios";
+const WS_URL = "ws://192.168.3.76:8081/ws/negocios";
 
 const getTemplate = (data) => {
   if (typeof data !== "object" || typeof data.status !== "string") {

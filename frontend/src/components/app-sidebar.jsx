@@ -5,9 +5,10 @@ import {
   Bug,
   GalleryVerticalEnd,
   AppWindow,
-  Settings2,
-  Receipt,
+  Settings,
+  ReceiptText,
   LayoutDashboard,
+  Package,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -42,12 +43,8 @@ const initialData = {
       icon: LayoutDashboard,
       items: [
         {
-          title: "Planta",
-          url: "/dashboard-planta",
-        },
-        {
           title: "Cotizaciones",
-          url: "#",
+          url: "/dashboard-planta",
         },
         {
           title: "Clientes",
@@ -65,10 +62,6 @@ const initialData = {
       icon: WalletMinimal,
       items: [
         {
-          title: "Nueva Cotización",
-          url: "#",
-        },
-        {
           title: "Cotizaciones",
           url: "#",
         },
@@ -81,12 +74,8 @@ const initialData = {
     {
       title: "Facturación",
       url: "/facturacion",
-      icon: Receipt,
+      icon: ReceiptText,
       items: [
-        {
-          title: "Nueva Factura",
-          url: "#",
-        },
         {
           title: "Facturas",
           url: "#",
@@ -101,13 +90,23 @@ const initialData = {
         },
       ],
     },
-  ],
-  projects: [
     {
-      name: "Negocios",
+      title: "Negocios",
       url: "/negocios",
       icon: LayoutList,
     },
+    {
+      title: "Inventario",
+      url: "/inventario",
+      icon: Package,
+    },
+    {
+      title: "Configuracion",
+      url: "/configuracion",
+      icon: Settings,
+    },
+  ],
+  projects: [
     {
       name: "Errores y Bugs",
       url: "#",
@@ -117,11 +116,6 @@ const initialData = {
       name: "Pagina Web",
       url: "#",
       icon: AppWindow,
-    },
-    {
-      name: "Configuracion",
-      url: "#",
-      icon: Settings2,
     },
   ],
 };

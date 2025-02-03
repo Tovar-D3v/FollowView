@@ -57,7 +57,7 @@ const CardPropuestas = ({ data }) => {
         </div>
 
         <div>
-          <p>{data.agente}</p>
+          <p>{data.nombreAgente}</p>
           <p>${data.estimado}</p>
           <p>{data.cliente}</p>
           <p>{data.proyecto}</p>
@@ -68,11 +68,6 @@ const CardPropuestas = ({ data }) => {
         <div className="descripcion-card">
           <p>{data.description}</p>
         </div>
-{/* 
-        <button className="cotizar-btn" style={{ marginTop: "1rem" }} onClick={handleCotizarClick}>
-          <span className="material-icons-round">receipt</span>
-          <p>COTIZAR</p>
-        </button> */}
       </div>
     </div>
   );
