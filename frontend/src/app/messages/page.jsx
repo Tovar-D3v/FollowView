@@ -12,12 +12,12 @@ const MessagesPage = () => {
           <div class="overflow-auto h-4/5">
             <div class="flex mb-4 p-4 rounded bg-neutral-800">
               <img
-                src="../../../images/img-01.jpeg"
-                class=" rounded-full w-12 mr-4"
+                src="../../../public/admin.webp"
+                class=" rounded-full w-14 h-12 mr-4"
               />
               <div class="w-full overflow-hidden">
                 <div class="flex mb-1">
-                  <p class="font-medium flex-grow">Diego Velázquez</p>
+                  <p class="font-medium flex-grow">Wilfred Tovar</p>
                   <small class="text-gray-300">09:55 am</small>
                 </div>
                 <small class="overflow-ellipsis overflow-hidden block whitespace-nowrap text-gray-300">
@@ -36,13 +36,13 @@ const MessagesPage = () => {
               <div class="flex flex-grow">
                 <div class="relative mr-4">
                   <img
-                    src="../../../images/img-02.jpeg"
+                    src="../../../public/admin.webp"
                     class="rounded-full w-12 h-12"
                   />
                   <div class="absolute bg-red-300 p-1 rounded-full bottom-0 right-0 border-2 border-gray-800"></div>
                 </div>
                 <div>
-                  <p class="font-medium">Daniela López</p>
+                  <p class="font-medium">Wilfred Tovar</p>
                   <small class="text-gray-300">Online</small>
                 </div>
               </div>
@@ -81,12 +81,12 @@ const MessagesPage = () => {
           <div class="py-6 px-10 h-[83%] overflow-auto">
             <div class="flex flex-row-reverse mb-3">
               <img
-                src="../../../images/img-01.jpeg"
+                src="../../../public/logo.jpg"
                 class="self-end rounded-full w-12 ml-4 h-12"
               />
               <div class="flex flex-col">
                 <div class="bg-green-800 text-white p-6 rounded-xl rounded-br-none w-96 mb-2">
-                  <p class="font-medium mb-1">Diego Velázquez</p>
+                  <p class="font-medium mb-1">Indelpa</p>
                   <small class="inline-block mb-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Maecenas dapibus a erat ac facilisis. Quisque in fringilla
@@ -98,12 +98,12 @@ const MessagesPage = () => {
             </div>
             <div class="flex mb-3">
               <img
-                src="../../../images/img-02.jpeg"
+                src="../../../public/admin.webp"
                 class="self-end rounded-full w-12 mr-4 h-12"
               />
               <div class="flex flex-col">
                 <div class="bg-zinc-800 p-6 rounded-xl rounded-bl-none w-96 shadow-sm mb-2">
-                  <p class="font-medium mb-1">Daniela López</p>
+                  <p class="font-medium mb-1">Wilfred Tovar</p>
                   <small class="inline-block text-gray-300 mb-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Maecenas dapibus a erat ac facilisis. Quisque in fringilla
@@ -115,12 +115,12 @@ const MessagesPage = () => {
             </div>
             <div class="flex flex-row-reverse mb-3">
               <img
-                src="../../../images/img-01.jpeg"
+                src="../../../public/logo.jpg"
                 class="self-end rounded-full w-12 ml-4 h-12"
               />
               <div class="flex flex-col">
                 <div class="bg-green-800 text-white p-6 rounded-xl rounded-br-none w-96 mb-2">
-                  <p class="font-medium mb-1">Diego Velázquez</p>
+                  <p class="font-medium mb-1">Indelpa</p>
                   <small class="inline-block mb-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Maecenas dapibus a erat ac facilisis. Quisque in fringilla
