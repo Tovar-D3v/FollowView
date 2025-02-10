@@ -5,6 +5,7 @@ import NegociosPage from "./app/negocios/page";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashboardLayout from "./app/dashboard/Layaout";
 import { AuthProvider } from "./context/AuthContext";
+import MessagesPage from "./app/messages/page.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/*" element={<DashboardLayout />}>
             <Route path="dashboard-planta" element={<Page />} />
             <Route path="negocios" element={<NegociosPage />} />
+            <Route path="chats" element={<MessagesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

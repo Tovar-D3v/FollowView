@@ -73,6 +73,10 @@
   }
 }
 
+#chat-clientes {
+  color: #ffff !important;
+}
+
 .smart-kanban {
   width: 100% !important;
   height: 680px !important;
