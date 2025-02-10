@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AccordionDemo } from "@/components/kanban/versiones-cotizacion";
 import {
   Sheet,
@@ -29,6 +30,7 @@ const CotizarForm = ({ open, onClose, data }) => {
   const [nombreSubversion, setNombreSubVersion] = useState("");
   const [contacto, setContacto] = useState(data.nombreCliente || "");
   const [cotizante, setCotizante] = useState("");
+  const navigate = useNavigate();
 
   console.log("Data:", data);
 
@@ -48,6 +50,7 @@ const CotizarForm = ({ open, onClose, data }) => {
       const result = await crearCotizacion(cotizacion);
       console.log("Cotización creada:", result);
       onClose();
+      navigate(`/cotizaciones/formulario-crear-cotizacion/${result.id}`);
     } catch (error) {
       console.error("Error al crear la cotización:", error);
     }

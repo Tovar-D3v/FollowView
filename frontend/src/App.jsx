@@ -17,6 +17,7 @@ function App() {
             <Route path="dashboard-planta" element={<Page />} />
             <Route path="negocios" element={<NegociosPage />} />
             <Route path="chats" element={<MessagesPage />} />
+            <Route path="cotizaciones" element={<Page />} />
           </Route>
         </Routes>
       </BrowserRouter>

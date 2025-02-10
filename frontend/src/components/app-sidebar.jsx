@@ -59,16 +59,15 @@ const initialData = {
     },
     {
       title: "Cotizaciones",
-      url: "/cotizaciones",
       icon: WalletMinimal,
       items: [
         {
           title: "Cotizaciones",
-          url: "#",
+          url: "/cotizaciones",
         },
         {
           title: "Cotizaciones Pendientes",
-          url: "#",
+          url: "/pendientes/cotizaciones",
         },
       ],
     },
