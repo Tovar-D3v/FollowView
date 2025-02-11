@@ -2,6 +2,11 @@
     font-family: poppins, sans-serif !important;
 }
 
+.smart-kanban {
+    height: 89vh !important;
+    max-height: 89vh !important;
+}
+
 .header-card {
     text-transform: uppercase;
 }

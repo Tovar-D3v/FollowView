@@ -65,3 +65,18 @@ export const obtenerVersionesSubversiones = async (negocioId) => {
     throw error;
   }
 };
+
+export const obtenerCotizaciones = async () => {
+  try {
+    const response = await fetch(API_URL);
+
+    if (!response.ok) {
+      throw new Error("Error en la solicitud");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error al obtener las cotizaciones:", error);
+    throw error;
+  }
+};
