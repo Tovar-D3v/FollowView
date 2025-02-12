@@ -9,6 +9,8 @@ import MessagesPage from "./app/messages/page.jsx";
 import TableCotizaciones from "./components/Cotizaciones/TableCotizaciones";
 import { CotizacionesPage } from "./app/cotizaciones/page";
 import { CotizacionesPendientesPage } from "./app/cotizacionesPendientes/page";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 function App() {
   return (

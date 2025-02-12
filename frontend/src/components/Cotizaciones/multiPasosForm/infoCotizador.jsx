@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Button, Input, DatePicker, Select } from "antd";
+import { Button, Input, DatePicker, Select, Space } from "antd";
 import MultiStepFormContext from "./MultiStepFormContext";
 import dayjs from "dayjs";
 
 const { Option } = Select;
 
 const FormularioCotizador = () => {
-  const { cotizacion, setCotizacion, next } = useContext(MultiStepFormContext);
+  const { cotizacion, setCotizacion, next} = useContext(MultiStepFormContext);
 
   return (
     <Formik
@@ -72,22 +72,24 @@ const FormularioCotizador = () => {
           <div className={`form__item ${errors.celular && "input__error"}`}>
             <label>Celular *</label>
             <div className="flex gap-4">
-              <Field name="prefijo">
-                {({ field }) => (
-                  <Select
-                    {...field}
-                    onChange={(value) => setFieldValue("prefijo", value)}
-                    style={{ width: '25%' }}
-                  >
-                    <Option value="+57">+57</Option>
-                    <Option value="+1">+1</Option>
-                    <Option value="+52">+52</Option>
-                  </Select>
-                )}
-              </Field>
-              <Field name="celular">
-                {({ field }) => <Input {...field} style={{ width: '70%' }} />}
-              </Field>
+              <Space.Compact>
+                <Field name="prefijo">
+                  {({ field }) => (
+                    <Input {...field} style={{ width: '20%' }} />
+                  )}
+                </Field>
+
+                <Field name="celular">
+                  {({ field }) => (
+                    <Input
+                      {...field}
+                      style={{
+                        width: '80%',
+                      }}
+                    />
+                  )}
+                </Field>
+              </Space.Compact>
             </div>
             <ErrorMessage name="celular" component="p" className="error__feedback" />
           </div>

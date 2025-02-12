@@ -4,6 +4,7 @@ import { Provider } from "./MultiStepFormContext";
 import Review from "./Review";
 import FormularioCotizador from "./infoCotizador";
 import FormularioProyecto from "./infoProyecto";
+import Page from "../elementos/page";
 
 const { Step } = Steps;
 
@@ -35,6 +36,8 @@ const renderStep = (step) => {
       return <FormularioCotizador />;
     case 1:
       return <FormularioProyecto />;
+    case 2:
+      return <Page />;
     default:
       return null;
   }
@@ -66,7 +69,7 @@ const MultiStepForm = () => {
         <Step title={"Items de la Cotización"} />
         <Step title={"Revisión Cotizacion"} />
       </Steps>
-      <div className="h-full flex justify-center items-center">{renderStep(currentStep)}</div>
+      <div className="h-full flex justify-center items-center text-slate-800">{renderStep(currentStep)}</div>
     </Provider>
   );
 };
