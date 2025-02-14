@@ -1,14 +1,22 @@
 import React from "react";
+import {
+  MessagesSquare
+} from "lucide-react";
 
 const MessagesPage = () => {
   return (
-    <div className="max-h-[90vh] flex-1 bg-muted/50 md:min-h-min rounded-xl">
-      <section id="chat-clientes" class="flex h-[100%] overflow-hidden rounded-xl">
-        <div class="bg-sidebar-foreground xl:w-3/12 lg:w-4/12 w-full p-4 rounded-xl">
-          <h3 class="text-2xl mb-4 font-bold">Chats</h3>
-          <div className="mb-4">
+    <div className="max-h-[90vh] flex-1 md:min-h-min rounded-xl h-full justify-center items-center flex flex-col">
+      <section id="chat-clientes" class="flex h-[90%] overflow-hidden rounded-xl">
+        
+        <div class="bg-background xl:w-3/12 lg:w-4/12 w-full p-4 rounded-xl flex flex-col gap-4">
+          <div class="flex gap-1">
+            <h3 class="text-2xl font-bold">Chats</h3>
+            <MessagesSquare className=" size-5" />
+          </div>
+          <div className="flex h-12 w-full items-center space-x-0 rounded-md border border-input pl-2 focus-within:outline-none focus-within:ring-1 focus-within:ring-ring">
             <input type="text" placeholder="Buscar" className="p-1.5 pl-3 rounded-lg bg-white w-full text-cyan-950"/>
           </div>
+
           <div class="overflow-auto h-4/5">
             <div class="flex mb-4 p-4 rounded bg-neutral-800">
               <img
@@ -27,9 +35,9 @@ const MessagesPage = () => {
                 </small>
               </div>
             </div>
-            
           </div>
         </div>
+
         <div class="bg-sidebar-foreground xl:w-9/12 lg:w-8/12 hidden lg:block border-gray-800" style={{borderLeft: '1px solid #3f3f46'}}>
           <div class="py-3 px-10 border-b">
             <div class="flex">

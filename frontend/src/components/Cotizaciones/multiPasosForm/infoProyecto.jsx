@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, Input, DatePicker, Select, Space } from "antd";
 import MultiStepFormContext from "./MultiStepFormContext";
@@ -8,6 +8,25 @@ const { Option } = Select;
 
 const FormularioProyecto = () => {
   const { proyecto, setProyecto, next, prev } = useContext(MultiStepFormContext);
+  const [loadings, setLoadings] = useState([]);
+
+  const enterLoading = (index, handleSubmit) => {
+    setLoadings((prevLoadings) => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
+
+    setTimeout(() => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = false;
+        return newLoadings;
+      });
+      handleSubmit();
+    }, 500);
+  };
+
 
   return (
     <Formik
@@ -196,8 +215,8 @@ const FormularioProyecto = () => {
           <div className="form__item button__items d-flex justify-content-between">
             <Button type="default" onClick={prev}>
               Atras
-            </Button>
-            <Button type="primary" onClick={handleSubmit}>
+            </Button> 
+            <Button type="primary"  loading={loadings[1]} onClick={() => enterLoading(1, handleSubmit)}>
               Siguiente
             </Button>
           </div>

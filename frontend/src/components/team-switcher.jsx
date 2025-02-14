@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ChevronsUpDown, Plus } from "lucide-react"
-
+import images from "@/images/images"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,7 +33,7 @@ export function TeamSwitcher({
               className="bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
               <div
                 className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground text-gray-800">
-                {activeTeam.logo && <activeTeam.logo />}
+                <img src={images.userAdmin} alt="" style={{borderRadius: '4px'}} />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">

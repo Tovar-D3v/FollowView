@@ -5,8 +5,8 @@ import MultiStepFormContext from "../multiPasosForm/MultiStepFormContext";
 
 const { Search } = Input;
 
-const Page = () => {
-  const {prev, handleSubmit } = useContext(MultiStepFormContext);
+const PageItems = () => {
+  const {prev, next } = useContext(MultiStepFormContext);
   const [items, setItems] = useState([{}]);
 
   const agregarItem = () => {
@@ -23,7 +23,7 @@ const Page = () => {
   return (
     <div
       className="flex gap-4 flex-col items-center justify-between"
-      style={{ height: "90%" }}
+      style={{ height: "81vh" }}
     >
       <div className="w-11/12 pt-2 pb-2 rounded-lg flex justify-between">
         <div className="flex gap-2 justify-center">
@@ -52,7 +52,7 @@ const Page = () => {
         <Button type="default" onClick={prev}>
           Atras
         </Button>
-        <Button type="primary" onClick={handleSubmit}>
+        <Button type="primary" onClick={next}>
           Siguiente
         </Button>
       </div>
@@ -60,4 +60,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default PageItems;

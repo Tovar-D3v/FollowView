@@ -9,7 +9,7 @@ import {
   ReceiptText,
   LayoutDashboard,
   Package,
-  MessageCircle,
+  MessagesSquare
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -103,7 +103,7 @@ const initialData = {
     {
       title: "Chats",
       url: "/chats",
-      icon: MessageCircle,
+      icon: MessagesSquare,
     },
     {
       title: "Configuracion",

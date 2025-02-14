@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Field } from "formik";
 import {
   Button,
@@ -25,28 +25,41 @@ const confirm = (index, eliminarItem) => {
 const cancel = () => {
   message.error("Cancelado");
 };
-
+8
 const items = [
   {
     key: "1",
-    label: "Agregar Descrpcion",
-  },
-  {
-    key: "2",
     label: "Partes Internas",
   },
   {
-    key: "3",
+    key: "2",
     label: "Partes Externas",
   },
   {
-    key: "4",
+    key: "3",
     label: "Cobre",
+  },
+  {
+    key: "4",
+    label: "Duplicar Item",
   },
 ];
 
 const ItemCotizacion = ({ itemKey, eliminarItem }) => {
   const numeroItem = itemKey + 1;
+  const [elementos, setElementos] = useState([{}]);
+
+  const agregarElemento = () => {
+    setElementos([...elementos, {}]);
+  };
+
+  const eliminarElemento = (index) => {
+    if (index === 0) {
+      return;
+    }
+    setElementos(elementos.filter((_, i) => i !== index));
+  };
+
   return (
     <Formik>
       <div
@@ -102,21 +115,9 @@ const ItemCotizacion = ({ itemKey, eliminarItem }) => {
           </div>
         </div>
 
-        <ElementoCotizacion itemKey={itemKey} />
-
-        <div className="flex justify-between gap-2">
-          <div className={`w-full mb-2 mt-2`}>
-            <Field name={`descripcionNota-${itemKey}`}>
-              {({ field }) => (
-                <TextArea
-                  {...field}
-                  placeholder="Descripcion o Nota"
-                  className=" w-full "
-                />
-              )}
-            </Field>
-          </div>
-        </div>
+        {elementos.map((elemento, index) => (
+          <ElementoCotizacion key={index} itemKey={itemKey} elementoKey={index} eliminarElemento={eliminarElemento}/>
+        ))}
 
         <div className="flex justify-end gap-2 w-full mt-2">
           <Popconfirm
@@ -136,6 +137,7 @@ const ItemCotizacion = ({ itemKey, eliminarItem }) => {
               items,
             }}
             className="w-fit"
+            onClick={agregarElemento}
           >
             Agregar Elemento
           </Dropdown.Button>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, Input, DatePicker, Select, Space } from "antd";
 import MultiStepFormContext from "./MultiStepFormContext";
@@ -7,7 +7,25 @@ import dayjs from "dayjs";
 const { Option } = Select;
 
 const FormularioCotizador = () => {
-  const { cotizacion, setCotizacion, next} = useContext(MultiStepFormContext);
+  const { cotizacion, setCotizacion, next } = useContext(MultiStepFormContext);
+  const [loadings, setLoadings] = useState([]);
+
+  const enterLoading = (index, handleSubmit) => {
+    setLoadings((prevLoadings) => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
+
+    setTimeout(() => {
+      setLoadings((prevLoadings) => {
+        const newLoadings = [...prevLoadings];
+        newLoadings[index] = false;
+        return newLoadings;
+      });
+      handleSubmit();
+    }, 500);
+  };
 
   return (
     <Formik
@@ -95,7 +113,7 @@ const FormularioCotizador = () => {
           </div>
 
           <div className="form__item button__items d-flex justify-content-end">
-            <Button type="primary" onClick={handleSubmit}>
+            <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0, handleSubmit)}>
               Siguiente
             </Button>
           </div>

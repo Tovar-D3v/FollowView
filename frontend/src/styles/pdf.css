@@ -1,0 +1,53 @@
+@media print {
+    @page {
+        margin: 0;
+        /* Elimina los márgenes para evitar encabezados y pies */
+        size: auto;
+        /* Ajusta el tamaño automáticamente */
+    }
+
+    /* Ocultar botones en la impresión */
+    .ant-modal-footer,
+    .ant-btn,
+    button {
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        display: none;
+    }
+
+    /* Ajustar el contenido impreso */
+    .print-content {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.table-pdf {
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 9px;
+    width: 100%;
+}
+
+.table-pdf th {
+    background: var(--color-primary);
+    font-weight: 500;
+}
+
+.table-pdf th,
+.table-pdf td {
+    padding: .3rem;
+    border: 1px solid #000;
+}
+
+.table-propuesta {
+    width: 100%;
+}
